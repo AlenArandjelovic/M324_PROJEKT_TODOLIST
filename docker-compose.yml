@@ -24,6 +24,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/todo_db
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: example
+    restart: unless-stopped
     ports:
       - "8080:8080"
 
@@ -34,8 +35,9 @@ services:
     container_name: todo-frontend
     depends_on:
       - backend
+    restart: unless-stopped
     ports:
-      - "80:80"
+      - "30080:80"
 
 volumes:
   mysql-data: {}
